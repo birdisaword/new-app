@@ -1,35 +1,30 @@
-import { Component } from 'react';
-import React from "react";
-import { contactsList } from './constants'
-
-const contact = contactsList.map((el) => {
-  return `${ el.firstName } ${ el.lastName } ${ el.phone }`
-})
+import React, { Component } from 'react';
+import { contacts } from  './Contacts'
 
   class Contact extends Component {
     constructor(props) {
     super(props)
     
     this.state = {
-      contacts: contact,
-      users: null,
+      users: contacts,
       inputValue: "",
     }
   }
 
-  componentDidMount() {
-    this.setState({ users: this.state.contacts })
-  }
+  // componentDidMount() {
+  //   this.setState({ users: contacts })
+  // }
 
   handleSearchChange = (e) => {
-    const filteredUsers = this.state.users.filter((el) =>
-    el.toLowerCase().includes(e.target.value.toLowerCase()))
-    
-    this.setState({ inputValue: e.target.value, users: filteredUsers })
-
-    if (!e.target.value) {
-      this.setState({ users: this.state.contacts })
+    const { value } = e.target;
+    if (!value) {
+      this.setState({ users: contacts })
+      return
     }
+    const filteredUsers = this.state.users.filter((el) =>
+    el.toLowerCase().includes(value.toLowerCase()))
+    
+    this.setState({ inputValue: value, users: filteredUsers })
   }
 
   render() {

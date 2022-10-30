@@ -1,4 +1,4 @@
-export const contactsList = [{
+ const list = [{
   firstName: "Барней",
   lastName: "Стинсовський",
   phone: "+380956319521",
@@ -28,3 +28,7 @@ export const contactsList = [{
   phone: "+380956319521",
   gender: "male"
 }];
+
+export const contacts = list.map((el) => {
+  return `${ el.firstName } ${ el.lastName } ${ el.phone }`
+})
