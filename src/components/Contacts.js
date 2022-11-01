@@ -29,6 +29,6 @@
   gender: "male"
 }];
 
-export const contacts = list.map((el) => {
+export const Contacts = list.map((el) => {
   return `${ el.firstName } ${ el.lastName } ${ el.phone }`
 })
