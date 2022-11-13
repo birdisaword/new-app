@@ -10,23 +10,29 @@ body {
 
 .image-container {
   border: solid #e5ebf6;
-  min-height: 50vh;
-  min-width: 60vh;
-  margin: 0 30%;
+  min-height: 90vh;
+  min-width: 110vh;
+  margin: 0 20%;
   background-image: url('./assets/bg-image.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  position:absolute;
+}
+
+.text{
+font-size: 1vh;
 }
 
 .container {
   position: inherit;
   background-color: white;
-  min-height: 15%;
-  min-width: 25%;
+  min-height: 8vh;
+  min-width: 40%;
   border-radius: 30px;
-  margin:25%;
-  padding-bottom: 5%;
+  margin: 15% 0;
+  padding-top: 1vh;
+ 
 }
 
 .input {
@@ -34,20 +40,25 @@ body {
   background-size: contain;
   text-align: center;
   font-size: 2vh;
-  margin-top: 20%;
+  margin-top: 15%;
   min-height: 5vh;
   min-width: 27vh;
   outline: none;
   border: 1px solid #837c8160;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.4);
+
 }
+
+
 
 .card-wrapper {
   border-radius: 15px;
-  margin: 5% 10%;
+  margin: 5% 36%;
   overflow: scroll;
   height: 45vh;
+  width: 30vh;
+  position: relative
 }
 
 .card {
@@ -55,7 +66,6 @@ body {
   flex-direction: column;
   align-items:flex-start;
   padding: 10px;
-  margin: auto;
   border-radius: 15px;
   margin: 15px;
 }

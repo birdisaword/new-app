@@ -1,34 +1,42 @@
- const list = [{
-  firstName: "Барней",
-  lastName: "Стинсовський",
-  phone: "+380956319521",
-  gender: "male"
-}, {
-  firstName: "Робін",
-  lastName: "Щербатська",
-  phone: "+380931460123",
-  gender: "female"
-}, {
-  firstName: "Анонімний",
-  lastName: "Анонімус",
-  phone: "+380666666666"
-}, {
-  firstName: "Лілія",
-  lastName: "Олдровна",
-  phone: "+380504691254",
-  gender: "female"
-}, {
-  firstName: "Маршен",
-  lastName: "Еріксонян",
-  phone: "+380739432123",
-  gender: "male"
-}, {
-  firstName: "Теодор",
-  lastName: "Мотсбес",
-  phone: "+380956319521",
-  gender: "male"
-}];
+import {contacts} from './constants'
+import React, { Component } from 'react';
+import Contact from './Contact.js'
 
-export const Contacts = list.map((el) => {
-  return `${ el.firstName } ${ el.lastName } ${ el.phone }`
-})
+class Contacts extends Component {
+  constructor(props) {
+  super(props)
+  this.state = {
+    users: contacts,
+  }
+}
+
+  handleSearchChange = (e) => {
+    const { value } = e.target;
+    
+    if (!value) {
+      return this.setState({ users: contacts })
+    }
+    
+    const filteredUsers = this.state.users.filter((el) =>
+      (`${el.firstName} ${el.lastName}`).toLowerCase().includes(value.toLowerCase()))
+       this.setState({ users: filteredUsers })
+  }
+
+  render() {
+    return (
+    <div>
+      <div className="image-container">
+        <input className="input" onChange={ this.handleSearchChange } />
+        <div className="card-wrapper">
+          {this.state.users.map((el) => 
+          <h1 className='text'> <Contact {...el} /> </h1>
+          )}
+        </div>
+      </div>
+    </div>
+    )
+  }
+}
+      
+
+  export default Contacts
