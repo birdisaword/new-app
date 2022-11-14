@@ -13,7 +13,7 @@ class Contacts extends Component {
   handleSearchChange = (e) => {
     const { value } = e.target;
     
-    if (!value) {
+    if (!value.trim()) {
       return this.setState({ users: contacts })
     }
     
